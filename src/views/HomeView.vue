@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <div class="login-button-container">
-      <button>Login</button>
+      <va-button color="info" gradient @click="login">Login</va-button>
     </div>
     <div class="home-content-container">
       <h1>Testament</h1>
@@ -22,8 +22,8 @@
 
 .login-button-container {
   position: absolute;
-  top: 5px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
 }
 
 .login-button-container button {
@@ -31,3 +31,37 @@
   padding: 10px 15px;
 }
 </style>
+
+<script setup lang="ts">
+// import web3 from "web3"
+import Web3Modal from "web3modal";
+// import WalletConnectProvider from "@walletconnect/web3-provider";
+
+const providerOptions = {
+  // walletconnect: {
+  //   package: WalletConnectProvider, // required
+  //   options: {
+  //     infuraId: "INFURA_ID" // required
+  //   }
+  // }
+};
+
+async function login() {
+  try {
+
+    const web3Modal = new Web3Modal({
+      network: "mainnet", // optional
+      cacheProvider: true, // optional
+      providerOptions // required
+    });
+
+    const provider = await web3Modal.connect();
+    // const web3 = new Web3(provider);
+    console.log('Web3: ', web3)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+</script>

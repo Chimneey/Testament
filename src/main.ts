@@ -5,8 +5,9 @@ import App from './App.vue'
 import router from './router'
 import { createVuestic } from 'vuestic-ui'
 import 'vuestic-ui/css'
-import './assets/main.css'
 import VueCountdown from '@chenfengyuan/vue-countdown';
+
+import './stylesheets/main.css'
 
 const app = createApp(App)
 
