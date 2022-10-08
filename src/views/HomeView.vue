@@ -33,35 +33,20 @@
 </style>
 
 <script setup lang="ts">
-// import web3 from "web3"
-import Web3Modal from "web3modal";
-// import WalletConnectProvider from "@walletconnect/web3-provider";
+import Web3 from "web3";
+import WalletConnectProvider from '@walletconnect/web3-provider/dist/umd/index.min.js'
+import QRCodeModal from '@walletconnect/qrcode-modal/dist/umd/index.min.js'
 
-const providerOptions = {
-  // walletconnect: {
-  //   package: WalletConnectProvider, // required
-  //   options: {
-  //     infuraId: "INFURA_ID" // required
-  //   }
-  // }
-};
+//  Create WalletConnect Provider
+const provider = new WalletConnectProvider({
+  infuraId: "27e484dcd9e3efcfd25a83a78777cdf1",
+  bridge: "https://bridge.myhostedserver.com",
+});
 
-async function login() {
-  try {
-
-    const web3Modal = new Web3Modal({
-      network: "mainnet", // optional
-      cacheProvider: true, // optional
-      providerOptions // required
-    });
-
-    const provider = await web3Modal.connect();
-    // const web3 = new Web3(provider);
-    console.log('Web3: ', web3)
-  } catch (error) {
-    console.log(error)
-  }
-}
+//  Enable session (triggers QR Code modal)
+await provider.enable();
+const web3 = new Web3(provider);
 
 
+//  Create Web3 instance
 </script>
