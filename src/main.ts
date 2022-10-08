@@ -4,8 +4,8 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import { createVuestic } from 'vuestic-ui'
-import 'vuestic-ui/css'
 import VueCountdown from '@chenfengyuan/vue-countdown';
+import 'vuestic-ui/css'
 
 import './stylesheets/main.css'
 

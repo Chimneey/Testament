@@ -1,24 +1,24 @@
 <template>
   <div id="home">
     <div class="login-button-container">
-      <va-button color="info" gradient @click="login">Login</va-button>
+      <va-button size="large" color="info" gradient @click="login">Login</va-button>
     </div>
     <div class="home-content">
-      <h1 class="display-1">Testament</h1>
-      <h2 class="title">Set an extra layer of protection to your wallet</h2>
-      <p class="display-4">Set a fallback wallet to transfers all your assets in case of loss</p>
-      <h2 class="display-3">How it works</h2>
-      <ol class="va-ordered">
-        <li>Connect The wallet you want to secure</li>
-        <li>Select you recipient wallets</li>
-        <li>Configure timer and other settings</li>
-      </ol>
-      <p>You're secured!</p>
+      <div class="half cta">
+        <p class="display-1 mb-0">Extra layer for</p>
+        <p class="display-1 color-primary mt-0 mb-5">wallet security</p>
+        <p class="text--secondary mb-5">Set a fallback plan in case of loss: Connect your wallet. Select recipients. Configure a timer. </p>
+        <p class="display-4">And that's it. <span class="color-primary">You're secured</span></p>
+      </div>
+      <div class="half lottie-container">
+        <lottie-player src="src\assets\lotties\secure-dapp.json" background="transparent" speed="1" loop autoplay></lottie-player>
+      </div>
+
     </div>
   </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
 #home {
   min-height: 100vh;
   min-width: 100vw;
@@ -35,7 +35,27 @@
 }
 
 .home-content {
-  text-align: center;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.display-1 {
+  font-size: 5rem;
+}
+
+.half {
+  width: 50%;
+
+  &.cta {
+    align-self: center;
+    padding-left: 30px;    
+  }
+}
+
+.color-primary {
+  color: var(--va-primary)
 }
 </style>
 
@@ -48,13 +68,14 @@ async function login() {
   try {
     //  Create WalletConnect Provider
     const provider = new WalletConnectProvider({
-      infuraId: "27e484dcd9e3efcfd25a83a78777cdf1"
+      infuraId: "27e484dcd9e3efcfd25a83a78777cdf1",
+      projectId: "6099b51f1e807ea6d8430d9b5b86221a"
     });
 
     //  Enable session (triggers QR Code modal)
     await provider.enable();
     const web3 = new Web3(provider);
-
+    console.log(web3)
 
     //  Create Web3 instance
   } catch (error) {

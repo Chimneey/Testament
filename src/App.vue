@@ -17,9 +17,6 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
-/* Reset */
-@import './stylesheets/reset.css';
-
 header {
   /* this header tag will be deleted */
   position: absolute;
@@ -28,7 +25,7 @@ header {
   background-color: rgba(217, 28, 28, 0.463);
 }
 
-.main-content{
+.main-content {
   min-height: 100vh;
   min-width: 100vw;
 }
