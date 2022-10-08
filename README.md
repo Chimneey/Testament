@@ -44,6 +44,3 @@ npm run build
 ```sh
 npm run lint
 ```
-
-
-https://vuestic.dev/en/ui-elements/table
