@@ -40,15 +40,25 @@
       </div>
       <div class="flex md6 lg6">
         <va-card>
-          <RouterLink to="/contract" class="va-button">
-            <va-button>
-              Create a Contract
-            </va-button>
-          </RouterLink>
-          <va-card-title></va-card-title>
+          <va-card-title>Contract</va-card-title>
           <va-card-content>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            <va-button> Button </va-button>
+            <div class="flex md12">
+              <RouterLink to="/contract" class="va-button">
+                <va-button>
+                  Create a Contract
+                </va-button>
+              </RouterLink>
+            </div>
+            <div class="flex md12">
+              <h4>Current Contract</h4>
+              <vue-countdown :time="2 * 24 * 60 * 60 * 1000" v-slot="{ days, hours, minutes, seconds }">
+                Time Remaining：{{ days }} days, {{ hours }} hours, {{ minutes }} minutes, {{ seconds }} seconds.
+              </vue-countdown>
+            </div>
+            <div class="flex md12">
+              <va-button> Cancel </va-button>
+              <va-button> Renew </va-button>
+            </div>
           </va-card-content>
         </va-card>
       </div>
