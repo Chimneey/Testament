@@ -5,7 +5,11 @@
         <va-card>
           <va-card-title>Recipients</va-card-title>
           <va-card-content>
-            <va-button> Add a Recipient </va-button>
+            <RouterLink to="/recipient" class="va-button">
+              <va-button>
+                recipient
+              </va-button>
+            </RouterLink>
             <div class="va-table-responsive">
               <table class="va-table va-table--striped">
                 <thead>
@@ -36,7 +40,12 @@
       </div>
       <div class="flex md6 lg6">
         <va-card>
-          <va-card-title>Create a Contract</va-card-title>
+          <RouterLink to="/contract" class="va-button">
+            <va-button>
+              Create a Contract
+            </va-button>
+          </RouterLink>
+          <va-card-title></va-card-title>
           <va-card-content>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             <va-button> Button </va-button>
