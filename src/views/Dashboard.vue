@@ -1,6 +1,5 @@
 <template>
   <div class="dashboard">
-<<<<<<< HEAD
     <div class="row">
       <div class="flex md6 lg6">
         <va-card>
