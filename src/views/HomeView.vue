@@ -39,8 +39,7 @@ import QRCodeModal from '@walletconnect/qrcode-modal/dist/umd/index.min.js'
 
 //  Create WalletConnect Provider
 const provider = new WalletConnectProvider({
-  infuraId: "27e484dcd9e3efcfd25a83a78777cdf1",
-  bridge: "https://bridge.myhostedserver.com",
+  infuraId: "27e484dcd9e3efcfd25a83a78777cdf1"
 });
 
 //  Enable session (triggers QR Code modal)
