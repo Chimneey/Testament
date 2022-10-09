@@ -52,6 +52,10 @@
     align-self: center;
     padding-left: 30px;    
   }
+
+  &.lottie-container {
+    max-height: 100vh;
+  }
 }
 
 .color-primary {
