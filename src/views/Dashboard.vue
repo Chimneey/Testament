@@ -1,64 +1,65 @@
 <template>
-  <div class="dashboard">
-    <div class="row">
-      <div class="flex md6 lg6">
+  <div id="dashboard">
+    <div class="half manage-recipients-container">
+      <div class="title-container mb-4">
+        <h1 class="display-3">Manage Recipients</h1>
+      </div>
+      <div class="recipients">
         <va-card>
-          <va-card-title>Recipients</va-card-title>
           <va-card-content>
+            <va-list>
+              <va-list-item class="mb-2" v-for="(recipient, index) in recipients" :key="index">
+                <va-list-item-section avatar>
+                  <va-avatar>
+                    <img :src="recipient.img">
+                  </va-avatar>
+                </va-list-item-section>
+                <va-list-item-section>
+                  <va-list-item-label>
+                    {{ recipient.name }}
+                  </va-list-item-label>
+                  <va-list-item-label caption>
+                    {{ recipient.address }}
+                  </va-list-item-label>
+                </va-list-item-section>
+                <va-list-item-section icon>
+                  <va-icon v-on:click="handleClick()" name="delete" color="gray" />
+                </va-list-item-section>
+              </va-list-item>
+            </va-list>
             <RouterLink to="/recipient" class="va-button">
               <va-button>
-                recipient
+                Add
               </va-button>
             </RouterLink>
-            <div class="va-table-responsive">
-              <table class="va-table va-table--striped">
-                <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Country</th>
-                  <th>Status</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-for="user in users" :key="user.id">
-                  <td>{{user.fullName}}</td>
-                  <td>{{user.email}}</td>
-                  <td>{{user.country}}</td>
-                  <td>
-                    <va-badge
-                        :text="user.status"
-                        :color="user.status"
-                    />
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
           </va-card-content>
         </va-card>
       </div>
-      <div class="flex md6 lg6">
+    </div>
+    <div class="half manage-contract-container">
+      <div class="title-container mb-4">
+        <h1 class="display-3">Manage Contract</h1>
+      </div>
+      <div class="contract">
         <va-card>
-          <va-card-title>Contract</va-card-title>
           <va-card-content>
-            <div class="flex md12">
-              <RouterLink to="/contract" class="va-button">
-                <va-button>
-                  Create a Contract
-                </va-button>
-              </RouterLink>
-            </div>
-            <div class="flex md12">
-              <h4>Current Contract</h4>
+            <div class="mb-4">
               <vue-countdown :time="2 * 24 * 60 * 60 * 1000" v-slot="{ days, hours, minutes, seconds }">
-                Time Remaining：{{ days }} days, {{ hours }} hours, {{ minutes }} minutes, {{ seconds }} seconds.
+                Time Remaining: {{ days }} days, {{ hours }} hours, {{ minutes }} minutes, {{ seconds }} seconds.
               </vue-countdown>
             </div>
-            <div class="flex md12">
-              <va-button> Cancel </va-button>
-              <va-button> Renew </va-button>
+            <div class="mb-4">
+              Recipient: 0x...123
             </div>
+            <div class="flex mb-4">
+              <va-button color="danger" class="mr-1"> Cancel </va-button>
+              <va-button color="success"> Renew </va-button>
+            </div>
+            <RouterLink to="/contract" class="va-button">
+              <va-button>
+                Create
+              </va-button>
+            </RouterLink>
           </va-card-content>
         </va-card>
       </div>
@@ -67,45 +68,40 @@
 </template>
 
 <style lang="scss" scoped>
-.va-table-responsive {
-  overflow: auto;
+#dashboard {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 50px 15px;
+}
+
+.half {
+  width: 50%;
+  min-width: 600px;
+  padding: 15px;
+
+  &.manage-recipients-container {}
+
+  &.manage-contract-container {}
 }
 </style>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  data () {
-    return {
-      users: [{
-        id: 1,
-        fullName: 'Ashley Mcdaniel',
-        email: 'ashleymcdaniel@nebulean.com',
-        country: 'Cayman Islands',
-        status: 'warning',
-      },
-        {
-          id: 2,
-          fullName: 'Todd Sellers',
-          email: 'sellerstodd@nebulean.com',
-          country: 'Togo',
-          status: 'info',
-        },
-        {
-          id: 3,
-          fullName: 'Sherman Knowles',
-          email: 'shermanknowles@nebulean.com',
-          country: 'Central African Republic',
-          status: 'warning',
-        },
-        {
-          id: 4,
-          fullName: 'Vasquez Lawson',
-          email: 'vasquezlawson@nebulean.com',
-          country: 'Bouvet Island',
-          status: 'info',
-        }],
-    }
-  },
-})
+<script setup lang="ts">
+import { useMainStore } from '@/stores/main';
+import { storeToRefs } from 'pinia';
+import { ref } from 'vue';
+
+const main = useMainStore()
+
+// extract specific store properties
+const { counter, doubleCounter, recipients } = storeToRefs(main)
+
+let handleClick = function () {
+  alert('delete')
+}
+
+
+
 </script>

@@ -47,6 +47,7 @@
 
 .half {
   width: 50%;
+  min-width: 500px;
 
   &.cta {
     align-self: center;
