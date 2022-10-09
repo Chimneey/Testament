@@ -47,3 +47,5 @@ npm run lint
 
 
 https://vuestic.dev/en/ui-elements/table
+
+solcjs --bin --include-path node_modules/  --base-path src/contracts/build --output-dir src/contracts/build --standard-json   src/contracts/hello.sol
