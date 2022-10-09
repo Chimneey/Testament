@@ -30,10 +30,10 @@ export const useMainStore = defineStore('main', {
             // `this` is the store instance
             this.counter = 0
         },
-        addRecipient(recipient: { name: string, wallet: string }) {
+        addRecipient(recipient: { name: string, address: string, img: string }) {
             this.recipients.push(recipient)
         },
-        removeRecipient(recipient: { name: string, wallet: string }) {
+        removeRecipient(recipient: { name: string, address: string, img: string }) {
             let arr = this.recipients
             const index = arr.indexOf(recipient);
             if (index > -1) {

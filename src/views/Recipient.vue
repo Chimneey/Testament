@@ -89,7 +89,7 @@ let charities = ref([
     img: 'https://www.savethechildren.org/content/dam/global/images/countries/venezuela/venezuela-hero-ch1251444.jpg/_jcr_content/renditions/cq5dam.thumbnail.1700.1700.jpg',
   },
   {
-    title: 'Save the Children® Honduras',
+    name: 'Save the Children® Honduras',
     selected: false,
     address: '0x44505D88F17c1997544D0901C0dF8dd2e398A8C6',
     href: 'https://www.savethechildren.org/us/where-we-work/honduras',
@@ -163,6 +163,7 @@ let ensResolution = async function (domain: string) {
 
     .va-card {
       height: 60vh;
+      max-height: 350px;
       overflow: hidden;
 
       :hover {

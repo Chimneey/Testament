@@ -3,14 +3,14 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
+  <!-- <header>
       <nav>
         <RouterLink to="/">Home</RouterLink> -
         <RouterLink to="/dashboard">Dashboard</RouterLink> -
         <RouterLink to="/recipient">recipient</RouterLink> -
         <RouterLink to="/contract">contract</RouterLink>
       </nav>
-  </header>
+  </header> -->
   <RouterLink id="main-logo-btn" to="/">
     <div>
       <!-- <img src="src/assets/logo.svg" alt="Testament Logo"> -->

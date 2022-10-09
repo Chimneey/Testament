@@ -49,7 +49,7 @@
               </vue-countdown>
             </div>
             <div class="mb-4">
-              Recipient: 0x...123
+              Recipient: 0x44...8C6
             </div>
             <div class="flex mb-4">
               <va-button color="danger" class="mr-1"> Cancel </va-button>
