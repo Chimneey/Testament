@@ -9,7 +9,9 @@
         <p class="display-1 color-primary mt-0 mb-5">wallet security</p>
         <p class="text--secondary mb-5">Set a fallback plan in case of loss: Connect your wallet. Select recipients.
           Configure a timer. </p>
-        <p class="display-4">And that's it. <span class="color-primary">You're secured</span></p>
+        <p class="display-4 mb-4">And that's it. <span class="color-primary">You're secured</span></p>
+        <va-button size="large" color="info" gradient @click="login">Login</va-button>
+
       </div>
       <div class="half lottie-container">
         <lottie-player src="src\assets\lotties\secure-dapp.json" background="transparent" speed="1" loop autoplay>
@@ -34,6 +36,7 @@
   position: absolute;
   top: 15px;
   right: 15px;
+  z-index: 1;
 }
 
 .home-content {

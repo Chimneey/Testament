@@ -11,12 +11,12 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/contract">contract</RouterLink>
       </nav>
   </header> -->
-  <RouterLink id="main-logo-btn" to="/">
-    <div>
+  <div id="main-logo-btn">
+    <RouterLink to="/">
       <!-- <img src="src/assets/logo.svg" alt="Testament Logo"> -->
       <p>Testament</p>
-    </div>
-  </RouterLink>
+    </RouterLink>
+  </div>
   <div id="main-content">
     <RouterView />
   </div>
@@ -39,7 +39,7 @@ header {
   top: 15px;
   justify-content: center;
 
-  > div {
+  > a {
     width: fit-content;
     padding: 10px;
     display: flex;
@@ -54,7 +54,7 @@ header {
   p {
     align-self: center;
     font-weight: 700;
-    font-size: 25px;
+    font-size: 3em;
     margin-left: 10px;
   }
 }
